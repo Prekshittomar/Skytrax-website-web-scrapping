@@ -1,10 +1,10 @@
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup as bp
 import pandas as pd
 
 def scrape_page(url):
     html_text=requests.get(url).text
-    soul=BeautifulSoup(html_text,'lxml')
+    soul=bp(html_text,'lxml')
     reviews=soul.find_all('div',class_='body')
     
     review_names=[]
